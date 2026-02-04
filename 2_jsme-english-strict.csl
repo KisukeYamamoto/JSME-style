@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl"
+       class="in-text"
+       version="1.0"
+       default-locale="en-US">
+
+  <info>
+    <title>Japan Society of Mechanical Engineers (English, strict2)</title>
+    <title-short>JSME-EN</title-short>
+    <id>http://www.zotero.org/styles/jsme-english-strict</id>
+    <category citation-format="numeric"/>
+    <category field="engineering"/>
+    <updated>2026-02-03</updated>
+  </info>
+
+  <!-- 強制的に “ ” を使う -->
+  <locale xml:lang="en-US">
+    <terms>
+      <term name="open-quote">“</term>
+      <term name="close-quote">”</term>
+    </terms>
+  </locale>
+
+  <!-- 著者：省略禁止・L.M.形式 -->
+  <macro name="author">
+    <names variable="author"
+           et-al-min="999"
+           et-al-use-first="999">
+      <name
+        name-as-sort-order="all"
+        sort-separator=", "
+        delimiter=", "
+        delimiter-precedes-last="always"
+        and="text"
+        initialize-with="."/>
+    </names>
+  </macro>
+
+  <!-- タイトル：必ず引用符付き -->
+  <macro name="title">
+    <text variable="title" quotes="true" text-case="title"/>
+  </macro>
+
+  <!-- Vol. X, No. Y (Year) -->
+  <macro name="vol-no-year">
+    <text value="Vol. "/>
+    <text variable="volume"/>
+    <text value=", No. "/>
+    <text variable="issue"/>
+    <text value=" "/>
+    <group prefix="(" suffix=")">
+      <date variable="issued">
+        <date-part name="year"/>
+      </date>
+    </group>
+  </macro>
+
+  <!-- pp. a-b -->
+  <macro name="pages">
+    <text value="pp. "/>
+    <text variable="page"/>
+  </macro>
+
+  <!-- 本文中引用：[1] -->
+  <citation>
+    <layout prefix="[" suffix="]">
+      <text variable="citation-number"/>
+    </layout>
+  </citation>
+
+  <!-- 参考文献リスト：(1) -->
+  <bibliography>
+    <layout suffix=".">
+      <text variable="citation-number" prefix="(" suffix=") "/>
+
+      <group delimiter=", ">
+        <text macro="author"/>
+        <text macro="title"/>
+        <text variable="container-title"/>
+        <text macro="vol-no-year"/>
+        <text macro="pages"/>
+      </group>
+    </layout>
+  </bibliography>
+
+</style>
