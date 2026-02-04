@@ -63,7 +63,7 @@
 
   <!-- 本文中引用：[1] -->
   <citation>
-    <layout prefix="[" suffix="]">
+    <layout vertical-align="sup" prefix="(" suffix=")">
       <text variable="citation-number"/>
     </layout>
   </citation>
